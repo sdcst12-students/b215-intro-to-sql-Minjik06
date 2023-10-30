@@ -22,3 +22,30 @@ retrieve a record by phone number and display all of the information
 You will need to create the table yourself. Consider what data types you will
 need to use.
 """
+
+import sqlite3
+
+file='dbase1.db'
+connection = sqlite3.connect(file)
+print(connection)
+
+cursor=connection.cursor()
+query='''
+create table if not exists pets (
+    id integer primary key autoincrement,
+    pname tinytext,
+    pspecies tinytext,
+    pbreed tinytext,
+    oname tinytext,
+    ophone int,
+    obalance int,
+    date Char(10));
+'''
+cursor.execute(query)
+cursor.execute('PRAGMA table_info(pets);')
+
+result = cursor.fetchall()
+print(result)
+for i in result:
+    print(i)
+

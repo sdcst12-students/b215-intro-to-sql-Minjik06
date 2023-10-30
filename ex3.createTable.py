@@ -31,6 +31,7 @@ create table if not exists customers (
 """
 cursor.execute(query)
 
+
 """
 This program makes use of a multiline string literal from lines 25-31
 Note that the triple " is used just like a regular ", but can create a
