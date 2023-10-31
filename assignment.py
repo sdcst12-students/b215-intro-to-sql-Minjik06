@@ -64,13 +64,17 @@ for i in data:
     query = f"insert into pets (pname,pspecies,pbreed,oname,ophone,obalance,date) values ('{i[1]}','{i[2]}','{i[3]}','{i[4]}','{i[5]}','{i[6]}','{i[7]}');"
     print(query)
     cursor.execute(query)
+
 connection.commit()
+
 query = "select * from pets"
 cursor.execute(query)
 
 
 result = cursor.fetchall()
-print(result)
+
 for i in result:
     print(i)
+
+
 
