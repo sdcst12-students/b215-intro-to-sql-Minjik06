@@ -51,7 +51,7 @@ print(result)
 for i in result:
     print(i)"""
 
-cursor.execute('delete from pets') 
+#cursor.execute('delete from pets') 
 data = [
     [1789,'Bella','Dog','Maltese','Joe Mantenga', '778457120', '700','2020-01-28'],
     [985,'Lucy','Dog','Bichon','Hanna Montana', '7784857629', '950','2021-11-13'],
@@ -70,11 +70,13 @@ connection.commit()
 query = "select * from pets"
 cursor.execute(query)
 
-
 result = cursor.fetchall()
-
+print(result)
 for i in result:
     print(i)
 
+    
+
+query="select"
 
 
