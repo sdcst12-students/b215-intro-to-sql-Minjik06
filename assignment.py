@@ -32,36 +32,37 @@ print(connection)
 cursor=connection.cursor()
 query='''
 create table if not exists pets (
-    id integer primary key autoincrement,
+    id integer,
     pname tinytext,
     pspecies tinytext,
     pbreed tinytext,
     oname tinytext,
     ophone tinytext,
+    email tinytext,
     obalance tinytext,
     date tinytext);
 '''
 
-"""
+
 cursor.execute(query)
 cursor.execute('PRAGMA table_info(pets);')
 
 result = cursor.fetchall()
 print(result)
 for i in result:
-    print(i)"""
+    print(i)
 
-#cursor.execute('delete from pets') 
+cursor.execute('delete from pets') 
 data = [
-    [1789,'Bella','Dog','Maltese','Joe Mantenga', '778457120', '700','2020-01-28'],
-    [985,'Lucy','Dog','Bichon','Hanna Montana', '7784857629', '950','2021-11-13'],
-    [2157,'Chloe','Cat','persian','Amanda Huggenkis', '7784475012', '630','2022-03-21'],
-    [2845,'Max','Dog','poodle','Michael Jackson', '7789851068', '810','2023-10-28'],
-    [1318,'Coco','Bird','parrot','Peter Nesmith', '7785736489', '370','2023-05-03']
+    [10,'Bella','Dog','Maltese','Joe Mantenga', '778457120','joe@sdss.ca', '700','2020-01-28'],
+    [20,'Lucy','Dog','Bichon','Hanna Montana', '7784857629', 'miley@cyrus.com','950','2021-11-13'],
+    [30,'Chloe','Cat','persian','Amanda Huggenkis', '7784475012', 'cool1@gmail.com','630','2022-03-21'],
+    [40,'Max','Dog','poodle','Michael Jackson', '7789851068', 'singer@thriller.com','810','2023-05-03'],
+    [45,'Coco','Bird','parrot','Peter Nesmith', '7785736489', 'bassist@monkees.org','370','2023-10-28']
     ]
 
 for i in data:
-    query = f"insert into pets (pname,pspecies,pbreed,oname,ophone,obalance,date) values ('{i[1]}','{i[2]}','{i[3]}','{i[4]}','{i[5]}','{i[6]}','{i[7]}');"
+    query = f"insert into pets (id,pname,pspecies,pbreed,oname,ophone,email,obalance,date) values ({i[0]},'{i[1]}','{i[2]}','{i[3]}','{i[4]}','{i[5]}','{i[6]}','{i[7]}','{i[8]}');"
     print(query)
     cursor.execute(query)
 
@@ -75,8 +76,32 @@ print(result)
 for i in result:
     print(i)
 
-    
+print()
 
-query="select"
+b=int(input("retrieve a record\n1.id?\n2.phone number?\n3.email?\n:"))
+print()
+if b==1:
+    a=int(input("Enter ID : "))
+    cursor.execute('select * from pets where id=:id',{"id":a})
+    result = cursor.fetchall()
+    if result:
+        for i in result:
+            print(i)
+    else:
+        print("records are not found")
+elif b==2:
+    a=str(input("Enter phone number? : "))
+    cursor.execute('select * from pets where ophone=:ophone',{"ophone":a})
+    result = cursor.fetchall()
+    print(result)
+    for i in result:
+        print(i)
+elif b==3:
+    a=str(input("Enter email? : "))
+    cursor.execute('select * from pets where email=:email',{"email":a})
+    result = cursor.fetchall()
+    print(result)
+    for i in result:
+        print(i)
 
 
