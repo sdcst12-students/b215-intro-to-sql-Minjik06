@@ -46,7 +46,7 @@ def data():
     cursor.execute(query)
     connection.commit()
 
-    print("_____Information_________________________________________________________________________________________")
+    print("_____Information stored__________________________________________________________________________________")
     query = "select * from pets"
     cursor.execute(query)
     result = cursor.fetchall()
@@ -55,7 +55,7 @@ def data():
     print("_________________________________________________________________________________________________________")
     print()
 
-    connection.close
+    connection.close()
 
 
 
@@ -90,7 +90,10 @@ def Id(id):
         g=str(input("Enter the owner's balance: "))
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
+        print()
         Phone(e)
+        print()
+        data()
 
     connection.close()
 
@@ -116,7 +119,10 @@ def Email(email):
         g=str(input("Enter the owner's balance: "))
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
+        print()
         Email(f)
+        print()
+        data()
     connection.close()
 
 def Phone(phone):
@@ -141,7 +147,10 @@ def Phone(phone):
         g=str(input("Enter the owner's balance: "))
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
+        print()
         Phone(e)
+        print()
+        data()
     connection.close()
 
 
