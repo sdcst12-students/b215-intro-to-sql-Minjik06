@@ -25,6 +25,156 @@ need to use.
 
 import sqlite3
 
+def data():
+    file='dbase1.db'
+    connection = sqlite3.connect(file)
+    print(connection)
+
+    cursor=connection.cursor()
+    query='''
+    create table if not exists pets (
+        id integer primary key autoincrement,
+        pname tinytext,
+        pspecies tinytext,
+        pbreed tinytext,
+        oname tinytext,
+        ophone tinytext,
+        email tinytext,
+        obalance tinytext,
+        date tinytext);
+    '''
+    cursor.execute(query)
+    connection.commit()
+
+    print("_____Information_________________________________________________________________________________________")
+    query = "select * from pets"
+    cursor.execute(query)
+    result = cursor.fetchall()
+    for i in result:
+        print(i)
+    print("_________________________________________________________________________________________________________")
+    print()
+
+    connection.close
+
+
+
+def addInfo(a,b,c,d,e,f,g,h):
+    connection=sqlite3.connect('dbase1.db')
+    cursor=connection.cursor()
+
+    cursor.execute("insert into pets (pname,pspecies,pbreed,oname,ophone,email,obalance,date) values (?,?,?,?,?,?,?,?)",(a,b,c,d,e,f,g,h))
+
+    connection.commit()
+    connection.close()
+
+def Id(id):
+    connection=sqlite3.connect('dbase1.db')
+    cursor=connection.cursor()
+
+    cursor.execute('select * from pets where id=?',(id,))
+    result=cursor.fetchall()
+
+    if result:
+        for i in result:
+            print(f"information : {result}")
+            print(f"ID: {i[0]}, Name: {i[1]}\n")
+    else:
+        print("records are not found / please add information")
+        a=str(input("Enter the pet's name: "))
+        b=str(input("Enter the pet's species: "))
+        c=str(input("Enter the pet's breed: "))
+        d=str(input("Enter the owner's name: "))
+        e=str(input("Enter the owner's phone number: "))
+        f=str(input("Enter the owner's email: "))
+        g=str(input("Enter the owner's balance: "))
+        h=str(input("Enter the date of first visit: "))
+        addInfo(a,b,c,d,e,f,g,h)
+        Phone(e)
+
+    connection.close()
+
+def Email(email):
+    connection=sqlite3.connect('dbase1.db')
+    cursor=connection.cursor()
+
+    cursor.execute('select * from pets where email=?',(email,))
+    result=cursor.fetchall()
+
+    if result:
+        for i in result:
+            print(f"information : {result}")
+            print(f"ID: {i[0]}, Name: {i[1]}\n")
+    else:
+        print("records are not found / please add information")
+        a=str(input("Enter the pet's name: "))
+        b=str(input("Enter the pet's species: "))
+        c=str(input("Enter the pet's breed: "))
+        d=str(input("Enter the owner's name: "))
+        e=str(input("Enter the owner's phone number: "))
+        f=str(input("Enter the owner's email: "))
+        g=str(input("Enter the owner's balance: "))
+        h=str(input("Enter the date of first visit: "))
+        addInfo(a,b,c,d,e,f,g,h)
+        Email(f)
+    connection.close()
+
+def Phone(phone):
+    connection=sqlite3.connect('dbase1.db')
+    cursor=connection.cursor()
+
+    cursor.execute('select * from pets where ophone=?',(phone,))
+    result=cursor.fetchall()
+
+    if result:
+        for i in result:
+            print(f"information : {result}")
+            print(f"ID: {i[0]}, Name: {i[1]}\n")
+    else:
+        print("records are not found / please add information")
+        a=str(input("Enter the pet's name: "))
+        b=str(input("Enter the pet's species: "))
+        c=str(input("Enter the pet's breed: "))
+        d=str(input("Enter the owner's name: "))
+        e=str(input("Enter the owner's phone number: "))
+        f=str(input("Enter the owner's email: "))
+        g=str(input("Enter the owner's balance: "))
+        h=str(input("Enter the date of first visit: "))
+        addInfo(a,b,c,d,e,f,g,h)
+        Phone(e)
+    connection.close()
+
+
+data()
+#addInfo('Bella','Dog','Maltese','Joe Mantenga', '778457120','joe@sdss.ca', '700','2020-01-28')
+Phone('778457120')
+Id(2)
+Email('klj@akje.ca')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+
+
 file='dbase1.db'
 connection = sqlite3.connect(file)
 print(connection)
@@ -140,6 +290,8 @@ elif b==3:
 else:
     addInfo()
 
+
+"""
 
 """
 need a function that will ask users for their details, and then write the details to the database
