@@ -91,7 +91,7 @@ def Id(id):
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
         print()
-        print("_________________________________your information is successfully added_________________________________")
+        print("__________________________________your information is successfully added__________________________________")
         Phone(e)
         print()
         data()
@@ -121,7 +121,7 @@ def Email(email):
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
         print()
-        print("_________________________________your information is successfully added_________________________________")
+        print("__________________________________your information is successfully added__________________________________")
         Email(f)
         print()
         data()
@@ -150,21 +150,52 @@ def Phone(phone):
         h=str(input("Enter the date of first visit: "))
         addInfo(a,b,c,d,e,f,g,h)
         print()
-        print("_________________________________your information is successfully added_________________________________")
+        print("__________________________________your information is successfully added__________________________________")
         Phone(e)
         print()
         data()
     connection.close()
 
+def Newinfo():
+    connection=sqlite3.connect('dbase1.db')
+    print()
+    a=str(input("Enter the pet's name: "))
+    b=str(input("Enter the pet's species: "))
+    c=str(input("Enter the pet's breed: "))
+    d=str(input("Enter the owner's name: "))
+    e=str(input("Enter the owner's phone number: "))
+    f=str(input("Enter the owner's email: "))
+    g=str(input("Enter the owner's balance: "))
+    h=str(input("Enter the date of first visit: "))
+    addInfo(a,b,c,d,e,f,g,h)
+    print()
+    print("__________________________________your information is successfully added__________________________________")
+    Phone(e)
+    print()
+    data()
+    connection.close()
 
-data()
-#addInfo('Bella','Dog','Maltese','Joe Mantenga', '778457120','joe@sdss.ca', '700','2020-01-28')
-Phone('778457120')
-Id(2)
-Email('mj4572@del.ca')
-Email('dfkjel@dke.ca')
-Id(8)
+def call():
+    data()
+    a=int(input("Find information with \n1.ID\n2.Phone\n3.Email\n4.Add info\n:"))
+    if a==1:
+        print()
+        b=int(input("Enter the ID: "))
+        Id(b)
+    elif a==2:
+        print()
+        b=str(input("Enter the Phone number: "))
+        Phone(b)
+    elif a==3:
+        print()
+        b=str(input("Enter the Email: "))
+        Email(b)
+    else:
+        Newinfo()
 
+
+
+call()
 
 
 
