@@ -77,8 +77,8 @@ def Id(id):
 
     if result:
         for i in result:
-            print(f"information : {result}")
-            print(f"ID: {i[0]}, Name: {i[1]}\n")
+            print(f"\ninformation : {result}")
+            print(f"***** ID: {i[0]}, Name: {i[1]} *****\n")
     else:
         print("records are not found / please add information")
         a=str(input("Enter the pet's name: "))
@@ -107,8 +107,8 @@ def Email(email):
 
     if result:
         for i in result:
-            print(f"information : {result}")
-            print(f"ID: {i[0]}, Name: {i[1]}\n")
+            print(f"\ninformation : {result}")
+            print(f"***** ID: {i[0]}, Name: {i[1]} *****\n")
     else:
         print("records are not found / please add information")
         a=str(input("Enter the pet's name: "))
@@ -136,8 +136,8 @@ def Phone(phone):
 
     if result:
         for i in result:
-            print(f"information : {result}")
-            print(f"ID: {i[0]}, Name: {i[1]}\n")
+            print(f"\ninformation : {result}")
+            print(f"***** ID: {i[0]}, Name: {i[1]} *****\n")
     else:
         print("records are not found / please add information")
         a=str(input("Enter the pet's name: "))
