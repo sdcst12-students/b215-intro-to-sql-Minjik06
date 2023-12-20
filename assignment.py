@@ -51,7 +51,7 @@ def data():
     cursor.execute(query)
     result = cursor.fetchall()
     for i in result:
-        print(i[8])
+        print(i)
     print("_________________________________________________________________________________________________________")
     print()
 
